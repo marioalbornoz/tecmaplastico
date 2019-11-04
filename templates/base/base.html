@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tecmaplastico</title>
+</head>
+<body>
+    <h2>Hola Tecmaplastico|{% block title %} {% endblock title %}</h2>
+    <nav>
+        <ul>
+            <li><a href="{% url 'portfolio_app:portfolio' %}">Inicio</a></li>
+            <li><a href="{% url 'maestranza_app:index' %}">Maestranza</a></li>
+            <li><a href="{% url 'produccion_app:produccion' %}">Producción</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

@@ -16,7 +16,8 @@ Including another URLconf
 from django.urls import path
 from app.portafolio.views import portafolio
 
+app_name = 'portfolio_app'
 urlpatterns = [
-    path('', portafolio, name="portafolio"),
+    path('', portafolio, name="portfolio"),
 ]
 

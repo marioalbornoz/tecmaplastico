@@ -22,3 +22,5 @@ urlpatterns = [
     path('maestranza/', include('app.maestranza.urls')),
     path('produccion/', include('app.produccion.urls')),
 ]
+
+admin.site.site_header = 'Tecmaplastico'

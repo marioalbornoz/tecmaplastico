@@ -1,14 +1,11 @@
 {% extends "base/base.html" %} 
 
 {% block title %}
-Login ctm
+Login
 {% endblock title %}
 
-{% block navbar %}
 
-{% endblock navbar %}
-
-{% block content %}
+{% block contenido %}
 
 <form method="post">
 	{% csrf_token %}
@@ -37,4 +34,4 @@ Login ctm
     </div>	
 </form>
 
-{% endblock content %}
+{% endblock %}

@@ -4,8 +4,48 @@
 Login
 {% endblock title %}
 
+{% block navbar1 %}
+<nav class="navbar navbar-expand-md bg-dark navbar-primary">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Volver</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle m-2" data-toggle="dropdown" role="button" aria-expanded="false">Mascotas
+							<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">Registrar</a></li>
+							<li><a href="#">Listar</a></li>
+						</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle m-2" data-toggle="dropdown" role="button" aria-expanded="false">Adopciones<span
+									class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Solicitar</a></li>
+								<li><a href="#">Listar solicitudes</a></li>
+							</ul>
+						</li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right m-2">
+							<li class="dropdown m-2"><a href="#" onclick="pageTracker._link(this.href); return false;">BlogDeMario</a>
+							</li>
+							<li class="dropdown m-2">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Opciones<span
+										class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Salir</a></li>
+								</ul>
+							</li>
+						</ul>
+						</div>
+						</div>
+						</nav>
+{% endblock navbar1 %}
 
-{% block contenido %}
+{% block content %}
 
 <form method="post">
 	{% csrf_token %}

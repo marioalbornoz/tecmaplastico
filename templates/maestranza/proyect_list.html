@@ -1,0 +1,67 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Listar proyectos{% endblock title %}
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>Proyecto</td>
+			<td>Empresa</td>
+			<td>Fecha de inicio</td>
+			<td>Encargado</td>
+			<td>Acciones</td>
+		</tr>
+		
+	</thead>
+	<tbody>
+		{% if object_list %}  <!-- SE USA OBJECT_LIST SOLO PARA VISTAS BASADAS EN CLASES, PARA FUNCIONES USAR DICCIONARIO-->
+		{% for proyecto in object_list %}
+		<tr>
+			<td>{{ proyecto.id }}</td>
+			<td>{{ proyecto.nombre_proyecto }}</td>
+			<td>{{ proyecto.empresa }}</td>
+			<td>{{ proyecto.fecha_inicio }}</td>
+			{% comment %} <td>
+			<ul>{% for vacuna in mascota.vacuna.all %}
+				<li>
+					{{vacuna.nombre}}
+				</li>
+				{% endfor %}
+			</ul>
+    		</td> {% endcomment %}
+			<td>
+            <ul> {% for persona in proyecto.persona.all %}
+                <li>
+                    {{persona.nombre}}
+                </li>
+                {% endfor %}
+            </ul>    
+            </td>
+			<td>
+				<a class="btn btn-primary" href="#">Editar</a>
+				<a class="btn btn-danger" href="#">Eliminar</a>
+			</td>
+		</tr>
+		{% endfor %}
+		
+		{% else %}
+		<h1>No hay registros de proyectos</h1>
+		{% endif %}
+	</tbody>
+</table> 
+<ul class="pagination">
+	<li class= "page-item">
+		{% if page_obj.has_previous %}
+       	 <a href="?page={{ page_obj.previous_page_number }}" class="page-link">Anterior</a>
+		{% endif %}
+    </li>
+	<li class="page-item">
+		{% if page_obj.has_next %}
+     	 <a href="?page={{ page_obj.next_page_number }}" class="page-link">Siguiente</a> 
+    	{% endif %}
+    </li>
+</ul> 
+{% endblock content %}

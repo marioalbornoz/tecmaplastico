@@ -15,17 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path, include
-from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
+from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView, logout_then_login
 from django.urls import reverse_lazy
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("app.portafolio.urls")),
     path('maestranza/', include('app.maestranza.urls')),
     path('produccion/', include('app.produccion.urls')),
-    path('sesion/',LoginView.as_view(template_name= 'registration/login.html'), name = 'login'),
-#    path('login/', login, { 'template_name':'login.html'}, name='login'),
-#    path('cuenta/', include('django.contrib.auth.urls')),
+    path('accounts/login/',LoginView.as_view(template_name= 'registration/login.html'), name = 'login'),
+    path('logout/',logout_then_login, name = 'logout'),
+
 
 
 ]

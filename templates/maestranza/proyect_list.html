@@ -3,7 +3,7 @@
 {% block title %}Listar proyectos{% endblock title %}
 
 {% block content %}
-
+		<br>
 		<table class="table table-bordered">
 			<thead class="thead-dark">
 				<tr class="bg-dark">
@@ -42,7 +42,7 @@
 					</td>
 					<td>
 						<a class="btn btn-primary" href="#">Editar</a>
-						<a class="btn btn-danger" href="#">Eliminar</a>
+						<a class="btn btn-danger" href="{% url 'maestranza_app:proyecto_eliminar' proyecto.id %}">Eliminar</a>
 					</td>
 				</tr>
 				{% endfor %}

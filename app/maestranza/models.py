@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 
@@ -8,6 +10,8 @@ class Persona(models.Model):
     apellidos = models.CharField(max_length=50)
     telefono = models.CharField(max_length=12)
     correo = models.EmailField()
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE, default=True)
+
 
     def __str__(self):
         return '{} {}'.format(self.nombre, self.apellidos)

@@ -14,10 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from app.portafolio.views import portafolio
+from app.portafolio.views import portafolio, BlogList, BlogCreate
+from django.contrib.auth.decorators import login_required
+
 
 app_name = 'portfolio_app'
 urlpatterns = [
     path('', portafolio, name="portfolio"),
+    path('/blog/nuevo/',login_required(BlogCreate.as_view()), name='portafolio_crear'),
+    path('blog/listar', login_required(BlogList.as_view()), name = 'portafolio_listar'),
 ]
-

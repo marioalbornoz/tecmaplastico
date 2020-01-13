@@ -8,6 +8,9 @@ from app.maestranza.forms import ProyectoForm
 def index(request):
     return render(request, 'maestranza/index.html')
 
+def area(request):
+	return render(request, 'maestranza/proyect_area.html')
+
 class ProyectList(ListView):
     model = Proyecto
     template_name = 'maestranza/proyect_list.html'

@@ -3,7 +3,7 @@
 <html lang="es">
 
 <head>
-    
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="{% static 'css/animated.min.css' %}">
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
   <script src="{% static 'js/jquery.slim.min.js' %}"></script>
-  <script src="{% static 'js/popper.min.js' %}"></script>    
+  <script src="{% static 'js/popper.min.js' %}"></script>
 
   <!-- Custom styles for this template -->
   <link href="{% static 'css/simple-sidebar.css' %}" rel="stylesheet">
@@ -29,12 +29,12 @@
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Inicio de Proyectos </div>
+      <div class="sidebar-heading mt-3 mb-3">Inicio de Proyectos </div>
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        <a href="{% url 'maestranza_app:area' %}" class="list-group-item list-group-item-action bg-light">Areas</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+        <a href="{% url 'portfolio_app:portafolio_listar' %}" class="list-group-item list-group-item-action bg-light">Noticias</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
       </div>
@@ -76,8 +76,8 @@
       </nav>
 
       <div class="container-fluid">
-        <h1 class="mt-4">Administracion</h1>
-        {% block content %} {% endblock %}      
+        <h2 class="mt-4">Administracion | {% block subtitle %}{% endblock %}</h2>
+        {% block content %} {% endblock %}
       </div>
     </div>
     <!-- /#page-content-wrapper -->
@@ -88,7 +88,7 @@
   <!-- Bootstrap core JavaScript -->
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/jquery.slim.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>    
+    <script src="{% static 'js/popper.min.js' %}"></script>
 
   <!-- Menu Toggle Script -->
   <script>

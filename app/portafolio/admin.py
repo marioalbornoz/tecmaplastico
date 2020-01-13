@@ -1,3 +1,7 @@
 from django.contrib import admin
+from app.portafolio.models import Posteos
 
-# Register your models here.
+class ProjectAdmin(admin.ModelAdmin):
+    readonly_fields = ('created', 'updated')
+
+admin.site.register(Posteos, ProjectAdmin)

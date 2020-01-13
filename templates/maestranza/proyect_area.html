@@ -1,0 +1,18 @@
+{% extends 'base/base_maestranza.html' %}
+
+{% block title %}Maestranza{% endblock title %}
+{% block subtitle %}Areas{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 ">
+            <ul>
+                <li><a href="{% url 'maestranza_app:proyecto_listar' %}">Diseño</a></li>
+                <li><a href="">Adquisiciones</a></li>
+                <li><a href="">Taller</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock content %}

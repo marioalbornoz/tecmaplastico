@@ -1,10 +1,20 @@
 {% extends 'maestranza/index.html' %}
 
 {% block content %}
-<form method="post">
-	{% csrf_token %}
-	{{ form.as_p }}
-
+<form class="form" method="post">{% csrf_token %}
+	{% for field in form %}
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-6">
+					{{field.errors}}
+					{{field.label_tag}} <br>
+					{{field}}
+					
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+		<br>
 	<button class="btn btn-primary" type="submit">Registrar</button>
 </form>
 {% endblock %}

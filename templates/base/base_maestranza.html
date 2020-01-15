@@ -29,14 +29,16 @@
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading mt-3 mb-3">Inicio de Proyectos </div>
+      <div class="sidebar-heading ml-5">
+        <img src="{% static 'img/logo_light.png' %}" class="img rounded-circle" width="100px" height="100px" alt="logo" srcset="">
+      </div>
       <div class="list-group list-group-flush">
         <a href="{% url 'maestranza_app:area' %}" class="list-group-item list-group-item-action bg-light">Areas</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Accesos</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Eventos</a>
         <a href="{% url 'portfolio_app:portafolio_listar' %}" class="list-group-item list-group-item-action bg-light">Noticias</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Perfil</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Estado</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->

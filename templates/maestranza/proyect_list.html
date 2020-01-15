@@ -22,6 +22,7 @@
 								<th scope="col">Empresa</th>
 								<th scope="col">Fecha de inicio</th>
 								<th scope="col">Encargado</th>
+								<th scope="col">Prioridad</th>
 								<th scope="col">Acciones</th>
 							</tr>
 							
@@ -49,6 +50,12 @@
 									</li>
 									{% endfor %}
 								</ul>    
+								</td>
+								<td>
+									{% if proyecto.prioridad == 0  %} baja {% endif %}
+									{% if proyecto.prioridad == 1  %} Media {% endif %}
+									{% if proyecto.prioridad == 2  %} Alta {% endif %}
+										
 								</td>
 								<td>
 									<a class="btn btn-primary" href="#">Editar</a>

@@ -14,7 +14,7 @@
 			<br>
 			<div class="row">
 				<div class="col">
-					<table class="table table-bordered">
+					<table class="table table-hover">
 						<thead class="thead-dark">
 							<tr class="bg-dark">
 								<th scope="col">#</th>
@@ -52,9 +52,9 @@
 								</ul>    
 								</td>
 								<td>
-									{% if proyecto.prioridad == 0  %} baja {% endif %}
-									{% if proyecto.prioridad == 1  %} Media {% endif %}
-									{% if proyecto.prioridad == 2  %} Alta {% endif %}
+									{% if proyecto.prioridad == 0  %} <span class="badge badge-primary">Baja</span> {% endif %}
+									{% if proyecto.prioridad == 1  %} <span class="badge badge-danger">Media</span> {% endif %}
+									{% if proyecto.prioridad == 2  %} <span class="badge badge-warning">Alta</span> {% endif %}
 										
 								</td>
 								<td>

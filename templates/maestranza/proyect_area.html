@@ -4,14 +4,17 @@
 {% block subtitle %}Areas{% endblock %}
 
 {% block content %}
+<br>
 <div class="container-fluid">
     <div class="row">
         <div class="col-6 ">
-            <ul>
-                <li><a href="{% url 'maestranza_app:proyecto_listar' %}">Proyectos</a></li>
-                <li><a href="">Adquisiciones</a></li>
-                <li><a href="">Taller</a></li>
-            </ul>
+            <div class="list-group">
+
+            </div>
+                <a class="list-group-item list-group-item-action" href="{% url 'maestranza_app:proyecto_listar' %}">Proyectos</a>
+                <a class="list-group-item list-group-item-action" href="">Adquisiciones</a>
+                <a class="list-group-item list-group-item-action"  href="">Taller</a>
+           
         </div>
     </div>
 </div>

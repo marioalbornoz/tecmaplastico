@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from app.maestranza.models import Proyecto, Persona, Estado
+from app.maestranza.models import Proyecto, Persona
 from django.views.generic import ListView, DeleteView, CreateView
 from django.urls import reverse_lazy
 from app.maestranza.forms import ProyectoForm

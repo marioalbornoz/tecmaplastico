@@ -1,6 +1,6 @@
 from django import forms
 from django.forms.widgets import CheckboxSelectMultiple
-from app.maestranza.models import Proyecto, Persona, Estado
+from app.maestranza.models import Proyecto, Persona
 
 class ProyectoForm(forms.ModelForm):
    

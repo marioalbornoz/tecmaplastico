@@ -1,16 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
+from multiselectfield import MultiSelectField
 
 
 # Create your models here.
-ESTADO = (
-    ('Diseno', 'diseno'),
-    ('Materiales','Materiales'),
-    ('Taller','Taller'),
-    ('Cnc','Cnc'),
-    ('CorteHilo','CorteHilo'),
-    ('Torno','Torno')
-)
+
 PRIORIDAD = (
     (0, 'Baja'),
     (1, 'Media'),
@@ -27,12 +21,6 @@ class Persona(models.Model):
     def __str__(self):
         return '{} {}'.format(self.nombre, self.apellidos)
 
-class Estado(models.Model):
-    estado = models.CharField(choices=ESTADO, verbose_name='estado', default='Diseno', max_length=100)
-    
-    def __str__(self):
-        return '{}'.format(self.estado)
-    
 
 class Proyecto(models.Model):
     nombre_proyecto = models.CharField(max_length=50)
@@ -40,6 +28,13 @@ class Proyecto(models.Model):
     fecha_inicio = models.DateField()
     persona = models.ManyToManyField(Persona, blank=True)
     prioridad = models.IntegerField(choices=PRIORIDAD, default=0)
-    estado = models.ManyToManyField(Estado, blank=True)
+    ESTADO = (
+    ('Diseno', 'diseno'),
+    ('Materiales','Materiales'),
+    ('Taller','Taller'),
+    ('Cnc','Cnc'),
+    ('CorteHilo','CorteHilo'),
+    ('Torno','Torno'),)
+    estado = MultiSelectField(choices=ESTADO, blank=True)
     def __str__(self):
         return '{} {}'.format(self.nombre_proyecto, self.empresa)

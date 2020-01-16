@@ -1,5 +1,6 @@
 from django import forms
-from app.maestranza.models import Proyecto, Persona
+from django.forms.widgets import CheckboxSelectMultiple
+from app.maestranza.models import Proyecto, Persona, Estado
 
 class ProyectoForm(forms.ModelForm):
    
@@ -12,6 +13,7 @@ class ProyectoForm(forms.ModelForm):
             'fecha_inicio',
             'persona',
             'prioridad',
+            'estado',
         ]
         labels = {
             'nombre_proyecto' : 'Nombre del proyecto',
@@ -19,14 +21,16 @@ class ProyectoForm(forms.ModelForm):
             'fecha_inicio' : 'Fecha de inicio',
             'persona' : 'Personal encargado',
             'prioridad' : 'Prioridad',
+            'estado' : 'Estados',
         }
         
         widget = {
             'nombre_proyecto' : forms.TextInput(attrs={'class':'form-control'}),
             'empresa' : forms.TextInput(attrs={'class': 'form-control'}),
             'fecha_inicio' : forms.TextInput(attrs={'class': 'form-control'}),
-			'persona': forms.CheckboxSelectMultiple(attrs={'class':'form-check'} ),
+			'persona': forms.MultipleChoiceField(required=True),
             'prioridad': forms.CheckboxSelectMultiple(attrs={'class':'form-check'}),
+            'estado' : forms.MultipleChoiceField(),
 
         }
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from app.maestranza.models import Proyecto, Persona
+from app.maestranza.models import Proyecto, Persona, Estado
 from django.views.generic import ListView, DeleteView, CreateView
 from django.urls import reverse_lazy
 from app.maestranza.forms import ProyectoForm
@@ -16,6 +16,7 @@ class ProyectList(ListView):
     template_name = 'maestranza/proyect_list.html'
     ordering = ['id']
     paginate_by = 3
+
 
 class ProyectCreate(CreateView):
 	model = Proyecto

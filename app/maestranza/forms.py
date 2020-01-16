@@ -11,12 +11,14 @@ class ProyectoForm(forms.ModelForm):
             'empresa',
             'fecha_inicio',
             'persona',
+            'prioridad',
         ]
         labels = {
             'nombre_proyecto' : 'Nombre del proyecto',
             'empresa' : 'Empresa',
             'fecha_inicio' : 'Fecha de inicio',
             'persona' : 'Personal encargado',
+            'prioridad' : 'Prioridad',
         }
         
         widget = {
@@ -24,4 +26,17 @@ class ProyectoForm(forms.ModelForm):
             'empresa' : forms.TextInput(attrs={'class': 'form-control'}),
             'fecha_inicio' : forms.TextInput(attrs={'class': 'form-control'}),
 			'persona': forms.CheckboxSelectMultiple(attrs={'class':'form-check'} ),
+            'prioridad': forms.CheckboxSelectMultiple(attrs={'class':'form-check'}),
+
         }
+
+# ESTADOS = (
+#     (0, 'Diseno'),
+#     (1, 'Materiales'),
+#     (2, 'Taller'),
+#     (3, 'Cnc'),
+#     (4, 'CorteHilo'),
+#     (5, 'Torno'),
+# )
+# class AvanceForm(forms.Form):
+#     estado = forms.MultipleChoiceField(required=True, widget=forms.CheckboxSelectMultiple, choices=ESTADOS)

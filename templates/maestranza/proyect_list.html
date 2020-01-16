@@ -6,14 +6,16 @@
 {% block content %}
 		<br>
 		<div class="<div class="container-fluid">
+			{% if user.is_staff %} 
 			<div class="row">
-				<div class="col col-6">
+				<div class="col">
 					<a class="btn btn-primary" href="{% url 'maestranza_app:proyecto_crear' %}">Agregar +</a>
 				</div>
 			</div>
+			{% endif %}
 			<br>
 			<div class="row">
-				<div class="col">
+				<div class="col-10">
 					<table class="table table-hover">
 						<thead class="thead-dark">
 							<tr class="bg-dark">
@@ -23,7 +25,7 @@
 								<th scope="col">Fecha de inicio</th>
 								<th scope="col">Encargado</th>
 								<th scope="col">Prioridad</th>
-								<th scope="col">Acciones</th>
+								{% if user.is_staff %} 	<th scope="col">Acciones</th>{% endif %}
 							</tr>
 							
 						</thead>
@@ -57,10 +59,12 @@
 									{% if proyecto.prioridad == 2  %} <span class="badge badge-warning">Alta</span> {% endif %}
 										
 								</td>
+								{% if user.is_staff %}
 								<td>
-									<a class="btn btn-primary" href="#">Editar</a>
-									<a class="btn btn-danger" href="{% url 'maestranza_app:proyecto_eliminar' proyecto.id %}">Eliminar</a>
+									<a class="btn btn-primary" style="margin-bottom: 5px;" href="#">Editar  </a>
+									<a class="btn btn-danger" style="margin-bottom: 5px;" href="{% url 'maestranza_app:proyecto_eliminar' proyecto.id %}">Eliminar</a>
 								</td>
+								{% endif %}
 							</tr>
 							{% endfor %}
 							

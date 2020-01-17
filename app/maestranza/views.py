@@ -11,6 +11,14 @@ def index(request):
 def area(request):
 	return render(request, 'maestranza/proyect_area.html')
 
+class cardList(ListView):
+	model = Proyecto
+	template_name = 'maestranza/proyect_card.html'
+	ordering = ['id']
+
+def card(request):
+	return render(request,'maestranza/proyect_card.html' )
+
 class ProyectList(ListView):
     model = Proyecto
     template_name = 'maestranza/proyect_list.html'

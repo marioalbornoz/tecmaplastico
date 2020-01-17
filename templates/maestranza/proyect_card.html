@@ -1,0 +1,30 @@
+{% extends 'base/base_maestranza.html' %}
+
+{% block title %}Maestranza{% endblock title %}
+{% block subtitle %}Proyectos{% endblock %}
+
+{% block content %}
+<br>
+<div class="container-fluid">
+    <div class="row ">
+        
+            {% if object_list  %}
+                {% for proyect in object_list %}
+                <div class="col mb-2 ">
+                <div class="card " style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ proyect.nombre_proyecto }}</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">{{ proyect.empresa}}</h6>
+                        <ul>{% for estado in proyect.estados.all %}
+                          <li>{{estado.status}}</li>
+                        {% endfor  %}</ul>
+                      <a href="#" class="card-link">Card link</a>
+                      <a href="#" class="card-link">Another link</a>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+            {% endif  %}
+    </div>
+</div>
+{% endblock content %}

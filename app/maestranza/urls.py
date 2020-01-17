@@ -14,13 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from app.maestranza.views import index, ProyectList, ProyectDelete, ProyectCreate, area
+from app.maestranza.views import index, ProyectList, ProyectDelete, ProyectCreate, area, cardList
 from django.contrib.auth.decorators import login_required
 
 app_name = 'maestranza_app'
 urlpatterns = [
     path('', login_required(index), name="index"),
     path('areas/', login_required(area), name='area'),
+    path('areas/card', login_required(cardList.as_view()), name='card'),
     path('nuevo/',login_required(ProyectCreate.as_view()), name='proyecto_crear'),
     path('listar/', login_required(ProyectList.as_view()), name = 'proyecto_listar'),
     path( '<int:pk>/eliminar/', ProyectDelete.as_view(), name='proyecto_eliminar'),

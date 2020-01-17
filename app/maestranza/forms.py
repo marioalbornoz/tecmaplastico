@@ -13,7 +13,7 @@ class ProyectoForm(forms.ModelForm):
             'fecha_inicio',
             'persona',
             'prioridad',
-            'estado',
+            'estados',
         ]
         labels = {
             'nombre_proyecto' : 'Nombre del proyecto',
@@ -21,17 +21,16 @@ class ProyectoForm(forms.ModelForm):
             'fecha_inicio' : 'Fecha de inicio',
             'persona' : 'Personal encargado',
             'prioridad' : 'Prioridad',
-            'estado' : 'Estados',
+            'estados' : 'Estados',
         }
         
         widget = {
             'nombre_proyecto' : forms.TextInput(attrs={'class':'form-control'}),
             'empresa' : forms.TextInput(attrs={'class': 'form-control'}),
             'fecha_inicio' : forms.TextInput(attrs={'class': 'form-control'}),
-			'persona': forms.MultipleChoiceField(required=True),
+		 	'persona': forms.MultipleChoiceField(required=True),
             'prioridad': forms.CheckboxSelectMultiple(attrs={'class':'form-check'}),
-            'estado' : forms.MultipleChoiceField(),
-
+            'estados' : forms.MultipleChoiceField(required=True, widget=forms.CheckboxSelectMultiple),
         }
 
 # ESTADOS = (

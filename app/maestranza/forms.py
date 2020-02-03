@@ -27,10 +27,10 @@ class ProyectoForm(forms.ModelForm):
         widget = {
             'nombre_proyecto' : forms.TextInput(attrs={'class':'form-control'}),
             'empresa' : forms.TextInput(attrs={'class': 'form-control'}),
-            'fecha_inicio' : forms.TextInput(attrs={'class': 'form-control'}),
+            'fecha_inicio' : forms.DateTimeInput(format='%d/%m/%s', attrs={'class':'form-control','type':'date'}),
 		 	'persona': forms.MultipleChoiceField(required=True),
             'prioridad': forms.CheckboxSelectMultiple(attrs={'class':'form-check'}),
-            'estados' : forms.MultipleChoiceField(required=True, widget=forms.CheckboxSelectMultiple),
+            'estados' : forms.MultipleChoiceField(required=True, widget=forms.CheckboxSelectMultiple(attrs={'class':'checkbox'})),
         }
 
 # ESTADOS = (

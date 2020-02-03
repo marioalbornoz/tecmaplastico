@@ -1,7 +1,18 @@
 {% extends 'maestranza/index.html' %}
 
-{% block content %}
-<form class="form" method="post">{% csrf_token %}
+
+{% load crispy_forms_tags %}
+
+{% block content1 %}
+<form class="form form-group" method="post">{% csrf_token %}
+	<!-- <div class='form-group'></div>
+		<label for="id_nombre_proyecto">{{ form.nombre_proyecto.label_tag}}</label>
+		<input class="form-control" type="text" name="nombre_proyecto" for="id_nombre_proyecto" > 
+		<label for="id_empresa">{{ form.empresa.label_tag}}</label>
+		<input class="form-control" type="text" name="empresa"  for="id_empresa"> 
+		<label for="id_fecha_inicio">{{ form.fecha_inicio.label_tag}}</label>
+		<input class="form-control" type="date" name="fecha_inicio"  id="id_fecha_inicio"> 
+	</div> -->
 	{% for field in form %}
 		<div class="container-fluid">
 			<div class="row">
@@ -18,3 +29,10 @@
 	<button class="btn btn-primary" type="submit">Registrar</button>
 </form>
 {% endblock %}
+{% block content %}
+<form method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success">Guardar Proyecto</button>
+  </form>
+{% endblock content %}

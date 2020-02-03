@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from app.maestranza.views import index, ProyectList, ProyectDelete, ProyectCreate, area, cardList
+from app.maestranza.views import index, ProyectList, ProyectDelete, ProyectCreate, area, cardList, ProyectUpdate
 from django.contrib.auth.decorators import login_required
 
 app_name = 'maestranza_app'
@@ -25,4 +25,5 @@ urlpatterns = [
     path('nuevo/',login_required(ProyectCreate.as_view()), name='proyecto_crear'),
     path('listar/', login_required(ProyectList.as_view()), name = 'proyecto_listar'),
     path( '<int:pk>/eliminar/', ProyectDelete.as_view(), name='proyecto_eliminar'),
+    path('<int:pk>/editar/', ProyectUpdate.as_view(), name='proyecto_editar')
 ]

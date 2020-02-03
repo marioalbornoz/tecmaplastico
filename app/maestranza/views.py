@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from app.maestranza.models import Proyecto, Persona
-from django.views.generic import ListView, DeleteView, CreateView
+from django.views.generic import ListView, DeleteView, CreateView, UpdateView
 from django.urls import reverse_lazy
 from app.maestranza.forms import ProyectoForm
 
@@ -35,4 +35,10 @@ class ProyectCreate(CreateView):
 class ProyectDelete(DeleteView):
 	model = Proyecto
 	template_name = 'maestranza/proyect_delete.html'
+	success_url = reverse_lazy('maestranza_app:proyecto_listar')
+
+class ProyectUpdate(UpdateView):
+	model = Proyecto
+	form_class = ProyectoForm
+	template_name = 'maestranza/proyect_forms.html'
 	success_url = reverse_lazy('maestranza_app:proyecto_listar')

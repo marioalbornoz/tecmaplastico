@@ -6,20 +6,26 @@
 {% block content %}
 <br>
 <div class="container-fluid">
-    <div class="row ">
-        
+    <div class="row ">   
             {% if object_list  %}
                 {% for proyect in object_list %}
-                <div class="col mb-2 ">
-                <div class="card " style="width: 18rem;">
+                <div class="col m-2 ">
+                <div class="card bg-dark text-white" style="width: 18rem;">
                     <div class="card-body">
-                      <h5 class="card-title">{{ proyect.nombre_proyecto }}</h5>
+                      <h5 class="card-title font-weight-bold">{{ proyect.nombre_proyecto }}</h5>
                       <h6 class="card-subtitle mb-2 text-muted">{{ proyect.empresa}}</h6>
                         <ul>{% for estado in proyect.estados.all %}
                           <li>{{estado.status}}</li>
                         {% endfor  %}</ul>
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
+                      <a href="#" class="card-link">Ver</a>
+                      <a href="#" class="card-link">Editar</a>
+                      <!-- {% if user.groups.all.0.name == "personal" %}
+                      {{user.get_all_permissions }}
+                      {% endif %}
+                      {{perms}} -->
+                      {% if perms.maestranza.change_estado %}
+                      puedo ver estado
+                      {% endif %}
                     </div>
                   </div>
                 </div>

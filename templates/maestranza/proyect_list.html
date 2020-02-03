@@ -61,7 +61,7 @@
 								</td>
 								{% if user.is_staff %}
 								<td>
-									<a class="btn btn-primary" style="margin-bottom: 5px;" href="#">Editar  </a>
+									<a class="btn btn-primary" style="margin-bottom: 5px;" href="{% url 'maestranza_app:proyecto_editar' proyecto.id %}">Editar  </a>
 									<a class="btn btn-danger" style="margin-bottom: 5px;" href="{% url 'maestranza_app:proyecto_eliminar' proyecto.id %}">Eliminar</a>
 								</td>
 								{% endif %}

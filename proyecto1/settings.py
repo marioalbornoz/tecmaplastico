@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'app.maestranza',
     'app.produccion',
     'app.portafolio',
- #   'crispy_forms',
+    'crispy_forms',
 ]
 #CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

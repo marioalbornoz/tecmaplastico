@@ -1,5 +1,6 @@
 astroid==2.3.3
 certifi==2019.11.28
+dj-static==0.0.6
 Django==2.2.3
 django-crispy-forms==1.9.0
 gunicorn==20.0.4
@@ -11,5 +12,6 @@ pylint==2.4.4
 pytz==2019.3
 six==1.13.0
 sqlparse==0.3.0
+static3==0.7.0
 typed-ast==1.4.0
 wrapt==1.11.2

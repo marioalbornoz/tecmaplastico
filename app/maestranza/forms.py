@@ -43,3 +43,33 @@ class ProyectoForm(forms.ModelForm):
 # )
 # class AvanceForm(forms.Form):
 #     estado = forms.MultipleChoiceField(required=True, widget=forms.CheckboxSelectMultiple, choices=ESTADOS)
+
+
+class AddPeopleForm(forms.ModelForm):
+    class Meta:
+        model = Persona
+
+        fields = [
+            'nombre',
+            'apellidos',
+            'correo',
+            'telefono',
+            'foto',
+            'usuario'
+        ]
+        labels = {
+            'nombre' : 'Nombre',
+            'apellidos' : 'Apellidos',
+            'correo' : 'Correo',
+            'telefono' : 'Telefono',
+            'foto' : 'Foto de perfil',
+            'usuario' : 'Usuarios',
+        }
+        widget = {
+            'nombre': forms.TextInput(attrs={'class':'form-control'}),
+            'apellidos': forms.TextInput(attrs={'class':'form-control'}),
+            'correo': forms.EmailInput(attrs={'class':'form-control'}),
+            'telefono':forms.TextInput(attrs={'class':'form-control'}),
+            'foto': forms.TextInput(attrs=None),
+            'usuario':forms.TextInput(attrs=None)
+        }

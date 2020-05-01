@@ -9,27 +9,44 @@
     <div class="row ">   
             {% if object_list  %}
                 {% for proyect in object_list %}
-                <div class="col m-2 ">
-                <div class="card bg-dark text-white" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title font-weight-bold">{{ proyect.nombre_proyecto }}</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">{{ proyect.empresa}}</h6>
-                        <ul>{% for estado in proyect.estados.all %}
-                          <li>{{estado.status}}</li>
-                        {% endfor  %}</ul>
-                      <a href="#" class="card-link">Ver</a>
-                      <a href="#" class="card-link">Editar</a>
-                      <!-- {% if user.groups.all.0.name == "personal" %}
-                      {{user.get_all_permissions }}
-                      {% endif %}
-                      {{perms}} -->
-                      {% if perms.maestranza.change_estado %}
-                      puedo ver estado
-                      {% endif %}
+                  <div class=" col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12 mb-2">
+                    <div class="card bg-dark text-white" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title font-weight-bold">{{ proyect.nombre_proyecto }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ proyect.empresa}}</h6>
+                          <ul>
+                          {% for estado in proyect.estados.all %}
+                            <li>{{estado.status}}</li>
+                          {% endfor  %}
+                          </ul>
+                        <a href="#" class="card-link">Ver</a>
+                        <a href="#" class="card-link">Editar</a>
+                        <!-- {% if user.groups.all.0.name == "personal" %}
+                        {{user.get_all_permissions }}
+                        {% endif %}
+                        {{perms}} -->
+                        {% if perms.maestranza.change_estado %}
+                        puedo ver estado priv
+                        {% endif %}
+                      </div>
                     </div>
                   </div>
-                </div>
                 {% endfor %}
+                {% comment %} {% for proyect in object_list %}
+                  <div class=" col-xl-3 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                      <div class="card-header">{{ proyect.nombre_proyecto }}</div>
+                      <div class="card-body">
+                        <h5 class="card-title">{{ proyect.empresa}}</h5>
+                        <p class="card-text"><ul>
+                          {% for estado in proyect.estados.all %}
+                            <li>{{estado.status}}</li>
+                          {% endfor  %}
+                          </ul></p>
+                      </div>
+                    </div>
+                </div>
+              {% endfor %}  {% endcomment %}
             {% endif  %}
     </div>
 </div>

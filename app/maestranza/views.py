@@ -2,7 +2,7 @@ from django.shortcuts import render
 from app.maestranza.models import Proyecto, Persona
 from django.views.generic import ListView, DeleteView, CreateView, UpdateView
 from django.urls import reverse_lazy
-from app.maestranza.forms import ProyectoForm
+from app.maestranza.forms import ProyectoForm, AddPeopleForm
 
 # Create your views here.
 def index(request):
@@ -23,7 +23,7 @@ class ProyectList(ListView):
     model = Proyecto
     template_name = 'maestranza/proyect_list.html'
     ordering = ['id']
-    paginate_by = 3
+    paginate_by = 4
 
 
 class ProyectCreate(CreateView):
@@ -42,3 +42,15 @@ class ProyectUpdate(UpdateView):
 	form_class = ProyectoForm
 	template_name = 'maestranza/proyect_forms.html'
 	success_url = reverse_lazy('maestranza_app:proyecto_listar')
+
+class AddPeople(CreateView):
+	model = Persona
+	form_class = AddPeopleForm
+	template_name = 'user/people_form.html'
+	success_url = reverse_lazy('maestranza_app:proyecto_listar')
+
+class ListPeople(ListView):
+	model = Persona
+	template_name = 'user/people_list.html'
+	ordering = ['id']
+	paginate_by = 20

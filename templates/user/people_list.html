@@ -1,0 +1,17 @@
+{% extends 'base/base_maestranza.html' %}
+
+{% block title %}
+Personal
+{% endblock title %}
+
+{% block subtitle %}
+Listado
+{% endblock subtitle %}
+
+{% block content %}
+{% if object_list %} 
+    {% for persona in object_list %}
+        <li>{{persona.nombre}}</li>
+    {% endfor %}
+{% endif %}
+{% endblock content %}
